@@ -1,0 +1,58 @@
+﻿<Window x:Name="TTTWindow" x:Class="TickTackToe.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Tick Tack Toe" Height="550" Width="520" Foreground="#FF1D0000" MouseLeftButtonDown="TTTWindow_MouseLeftButtonDown" BorderBrush="#FF912F0D" WindowStartupLocation="CenterScreen" Background="Black" SizeChanged="TTTWindow_SizeChanged" MinWidth="517" MinHeight="550" Icon="ttticon.ico">
+    <Grid x:Name="TTTWindowGrid" Margin="-1,0,-0.6,-1.2" Background="#FFBE451C">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="183*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="75*"/>
+            <RowDefinition Height="183*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
+        <Menu x:Name="Menu" Grid.ColumnSpan="3" VerticalAlignment="Top" Background="#FF912F0D">
+            <MenuItem x:Name="FileMenuItem" Header="_File" Background="#FF912F0D" Foreground="#FF1D0000" Margin="10,0,0,0">
+                <MenuItem x:Name="NewGameMenuItem" Header="_New Game -Regular Board-" Click="NewGameMenuItem_Click" Background="#FFBE451C" BorderBrush="#FF912F0D"/>
+                <MenuItem x:Name="NewGameWithSizeMenuItem" Header="New  Game -_Board Select-" Click="NewGameWithSizeMenuItem_Click" Background="#FFBE451C" BorderBrush="#FF912F0D"/>
+                <MenuItem x:Name="CloseMenuItem" Header="_Close" Click="CloseMenuItem_Click" Background="#FFF70000" BorderBrush="#FF912F0D"/>
+            </MenuItem>
+            <MenuItem x:Name="HelpMenuItem" Header="_Help" Background="#FF912F0D" Foreground="#FF1D0000">
+                <MenuItem x:Name="UsageMenuItem" Header="_Usage" Click="UsageMenuItem_Click" Background="#FFBE451C" BorderBrush="#FF912F0D"/>
+                <MenuItem x:Name="AboutMenuItem" Header="_About" Click="AboutMenuItem_Click" Background="#FFBE451C" BorderBrush="#FF912F0D"/>
+            </MenuItem>
+        </Menu>
+        <Canvas x:Name="TTTCanvas" Margin="60,75,60,50" Grid.ColumnSpan="3" Grid.RowSpan="4" Background="#FF615B5B" Width="400" Height="400" RenderTransformOrigin="0.5,0.5">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <ComboBox x:Name="cmbxBoardSize" Canvas.Left="74" Canvas.Top="190" AllowDrop="True" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="5,5,5,7" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="28" IsEditable="True" Text="3" Visibility="Hidden">
+                <ComboBox.BindingGroup>
+                    <BindingGroup/>
+                </ComboBox.BindingGroup>
+                <ComboBoxItem Content="1"></ComboBoxItem>
+                <ComboBoxItem Content="2"></ComboBoxItem>
+                <ComboBoxItem Content="3"></ComboBoxItem>
+                <ComboBoxItem Content="4"></ComboBoxItem>
+                <ComboBoxItem Content="5"></ComboBoxItem>
+                <ComboBoxItem Content="6"></ComboBoxItem>
+                <ComboBoxItem Content="7"></ComboBoxItem>
+                <ComboBoxItem Content="8"></ComboBoxItem>
+                <ComboBoxItem Content="9"></ComboBoxItem>
+                <ComboBoxItem Content="10"></ComboBoxItem>
+            </ComboBox>
+            <Button x:Name="btnSubmit" Content="Submit" Canvas.Left="226" Canvas.Top="191" Width="80" Height="28" Click="btnSubmit_Click" Visibility="Hidden" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        </Canvas>
+        <Button x:Name="btnCoinToss" Content="_Coin Toss" HorizontalAlignment="Left" Margin="1,145.6,0,5" Grid.Row="3" Width="75" Grid.Column="1" Height="28" IsEnabled="False" Click="btnCoinToss_Click" Background="Black" Foreground="#FFE2E2E2" Opacity="0.3" HorizontalContentAlignment="Center" Padding="1,5" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnPlayAgain" Content="_Play Again" Grid.Column="1" HorizontalAlignment="Right" Margin="124,144.6,0,5" Grid.Row="3" Width="75" Height="29" IsEnabled="False" Click="btnPlayAgain_Click" Background="Black" Foreground="#FFE2E2E2" Opacity="0.3" VerticalAlignment="Bottom"/>
+        <Label x:Name="lblGameStatus" Content="Tick Tack Toe" Margin="60,29,62,0" RenderTransformOrigin="1,0.5" VerticalAlignment="Top" FontFamily="Comic Sans MS" FontSize="18" HorizontalContentAlignment="Stretch" Background="#FF912F0D" Foreground="#FF1D0000" Grid.ColumnSpan="3" HorizontalAlignment="Center"/>
+    </Grid>
+</Window>
